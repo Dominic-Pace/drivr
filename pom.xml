@@ -8,7 +8,6 @@
     <artifactId>drivr-api</artifactId>
     <version>1.0-SNAPSHOT-beta</version>
 
-
     <properties>
         <selenium.version>2.53.0</selenium.version>
         <webdriver.manager.version>1.4.8</webdriver.manager.version>
@@ -40,4 +39,17 @@
             <version>${webdriver.manager.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
