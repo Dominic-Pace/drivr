@@ -1,7 +1,7 @@
 package org.drivrhq.drivr.runnr;
 
 import org.drivrhq.drivr.utils.JsonUtils;
-import org.drivrhq.drivr.utils.exception.RunnerInterruptionException;
+import org.drivrhq.drivr.utils.exception.DrivrInterruptionException;
 import org.testng.ITestContext;
 import org.testng.annotations.DataProvider;
 
@@ -49,7 +49,7 @@ public class TestProvider {
             return new Object[][]{{ newUser }};
 
         } catch (Exception e) {
-            throw new RunnerInterruptionException("Could not return object for "
+            throw new DrivrInterruptionException("Could not return object for "
                     + superMethod.getParameterTypes()[0] + "...");
         }
     }

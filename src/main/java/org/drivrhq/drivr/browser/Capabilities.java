@@ -1,7 +1,7 @@
 package org.drivrhq.drivr.browser;
 
 import org.drivrhq.drivr.browser.enums.BrowserType;
-import org.drivrhq.drivr.utils.exception.RunnerInterruptionException;
+import org.drivrhq.drivr.utils.exception.DrivrInterruptionException;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -10,7 +10,6 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Collections;
-
 
 /**
  * (C) Copyright 2016 Dominic Pace (https://github.com/Dominic-Pace)
@@ -33,9 +32,9 @@ public class Capabilities {
      *
      * @return the browser capability
      */
-    public static DesiredCapabilities getBrowserCapabilites(BrowserType browserType) {
+    public static DesiredCapabilities getBrowserCapabilities(BrowserType browserType) {
 
-        DesiredCapabilities capabilities = null;
+        DesiredCapabilities capabilities;
 
         switch (browserType) {
 
@@ -85,11 +84,11 @@ public class Capabilities {
                 break;
 
             default:
-                throw new RunnerInterruptionException("Cannot resolve the browser capabilties for "
+                throw new DrivrInterruptionException("Cannot resolve the browser capabilties for "
                         + "browser type: " + browserType);
 
         }
-
         return capabilities;
+
     }
 }

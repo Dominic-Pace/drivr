@@ -2,7 +2,7 @@ package org.drivrhq.drivr.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.drivrhq.drivr.utils.exception.RunnerInterruptionException;
+import org.drivrhq.drivr.utils.exception.DrivrInterruptionException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,8 +38,10 @@ public class JsonUtils {
 
         try {
             this.reader = new FileReader(this.jsonFilePath);
+
         } catch (FileNotFoundException e) {
-            throw new RunnerInterruptionException("Could not read the json file: " + jsonFilePath);
+            throw new DrivrInterruptionException("Could not read the json file: " + jsonFilePath);
+
         }
     }
 
@@ -51,7 +53,6 @@ public class JsonUtils {
      */
     public Object createObjectFromJsonFile(Object objectToCreate) {
         gson = new GsonBuilder().create();
-
         return gson.fromJson(reader, objectToCreate.getClass());
 
     }
@@ -59,5 +60,6 @@ public class JsonUtils {
     public List<Object> createObjectsFromJsonFile(Class<?> objectToCreate) {
         gson = new GsonBuilder().create();
         return gson.fromJson(reader, new CoreObjectType<>(objectToCreate) );
+
     }
 }

@@ -4,7 +4,7 @@ import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 import org.drivrhq.drivr.browser.enums.BrowserType;
 import org.drivrhq.drivr.browser.enums.DriverRunType;
-import org.drivrhq.drivr.utils.exception.RunnerInterruptionException;
+import org.drivrhq.drivr.utils.exception.DrivrInterruptionException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -54,17 +54,17 @@ public class BrowserFactory {
     public WebDriver getBrowserInstance(DriverRunType driverRunType) {
 
         if (driverRunType.equals(DriverRunType.DIRECT)) {
-            driver = initDirectDriver(Capabilities.getBrowserCapabilites(browserType));
+            driver = initDirectDriver(Capabilities.getBrowserCapabilities(browserType));
 
         } else if (driverRunType.equals(DriverRunType.REMOTE) && seleniumGridURL == null) {
-            throw new RunnerInterruptionException("Could not create a remote browser instance "
+            throw new DrivrInterruptionException("Could not create a remote browser instance "
                     + "because Grid URL is undefined. Please pass as parameter into constructor.");
 
         } else if (driverRunType.equals(DriverRunType.REMOTE)) {
-            driver = initRemoteWebDriver(Capabilities.getBrowserCapabilites(browserType));
+            driver = initRemoteWebDriver(Capabilities.getBrowserCapabilities(browserType));
 
         } else {
-            throw new RunnerInterruptionException("Could not initialize a browser.");
+            throw new DrivrInterruptionException("Could not initialize a browser.");
 
         }
         return driver;
@@ -100,11 +100,12 @@ public class BrowserFactory {
                 break;
 
             default:
-                throw new RunnerInterruptionException("Cannot resolve driver type: "
+                throw new DrivrInterruptionException("Cannot resolve driver type: "
                         + browserType.toString());
-        }
 
+        }
         return driver;
+
     }
 
     /**
@@ -120,7 +121,7 @@ public class BrowserFactory {
             driver = new RemoteWebDriver(url, capabilities);
 
         } catch(MalformedURLException e) {
-            throw new RunnerInterruptionException(
+            throw new DrivrInterruptionException(
                     "Cannot initialize a Remote WebDriver instance.");
 
         }

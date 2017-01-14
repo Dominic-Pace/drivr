@@ -14,14 +14,14 @@ package org.drivrhq.drivr.utils.exception;
  * Lesser General Public License for more details.
  *
  */
-public class RunnerInterruptionException extends RuntimeException {
+public class DrivrInterruptionException extends RuntimeException {
 
     /**
      * Custom Runtime Exception Constructor.
      *
      * @param message to report.
      */
-    public RunnerInterruptionException(String message) {
+    public DrivrInterruptionException(String message) {
         super(message);
     }
 
@@ -31,7 +31,7 @@ public class RunnerInterruptionException extends RuntimeException {
      * @param message to report.
      * @param throwable the throwable case.
      */
-    public RunnerInterruptionException(String message, Throwable throwable) {
+    public DrivrInterruptionException(String message, Throwable throwable) {
         super(message, throwable);
     }
 }
