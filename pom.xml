@@ -8,9 +8,10 @@
     <artifactId>drivr-api</artifactId>
     <version>1.0-SNAPSHOT-beta</version>
 
-
     <properties>
+        <java.version>1.8</java.version>
         <selenium.version>2.53.0</selenium.version>
+        <testng.version>6.9.10</testng.version>
         <webdriver.manager.version>1.4.8</webdriver.manager.version>
     </properties>
 
@@ -35,9 +36,28 @@
         </dependency>
 
         <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdriver.manager.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
