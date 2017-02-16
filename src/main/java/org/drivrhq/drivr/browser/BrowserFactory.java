@@ -49,7 +49,7 @@ public class BrowserFactory {
 
     /**
      * Method used to initialize a browser instance.
-     * @return WebDriver instnace.
+     * @return WebDriver instance.
      */
     public WebDriver getBrowserInstance(DriverRunType driverRunType) {
 
