@@ -12,9 +12,8 @@
         <java.version>1.8</java.version>
         <selenium.version>2.53.0</selenium.version>
         <testng.version>6.9.10</testng.version>
-        <webdriver.manager.version>1.4.8</webdriver.manager.version>
+        <webdriver.manager.version>1.6.0</webdriver.manager.version>
     </properties>
-
 
     <dependencies>
         <dependency>
