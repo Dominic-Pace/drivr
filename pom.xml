@@ -15,7 +15,6 @@
         <webdriver.manager.version>1.4.8</webdriver.manager.version>
     </properties>
 
-
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
