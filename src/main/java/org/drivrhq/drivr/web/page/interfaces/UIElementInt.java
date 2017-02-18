@@ -1,4 +1,8 @@
-package org.drivrhq.drivr.browser.enums;
+package org.drivrhq.drivr.web.page.interfaces;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.internal.Locatable;
+import org.openqa.selenium.internal.WrapsElement;
 
 /**
  * (C) Copyright 2016 Dominic Pace (https://github.com/Dominic-Pace)
@@ -14,22 +18,14 @@ package org.drivrhq.drivr.browser.enums;
  * Lesser General Public License for more details.
  *
  */
-public enum BrowserType {
+public interface UIElementInt extends WebElement, WrapsElement, Locatable {
 
-    CHROME("chrome"),
-    FIREFOX("firefox"),
-    IE("ie"),
-    SAFARI("safari"),
-    PHANTOM_JS("phantomjs");
+    void toggle();
 
-    private String browserType;
+    void check();
 
-    BrowserType(String browserType) {
-        this.browserType = browserType;
-    }
+    void uncheck();
 
-    @Override
-    public String toString() {
-        return browserType;
-    }
+    boolean isChecked();
+
 }

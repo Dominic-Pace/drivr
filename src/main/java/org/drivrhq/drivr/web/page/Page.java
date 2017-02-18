@@ -1,4 +1,4 @@
-package org.drivrhq.drivr.page;
+package org.drivrhq.drivr.web.page;
 
 import com.google.common.base.Preconditions;
 import org.drivrhq.drivr.utils.StringUtils;

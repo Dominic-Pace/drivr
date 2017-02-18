@@ -1,10 +1,10 @@
-package org.drivrhq.drivr.browser;
+package org.drivrhq.drivr.web.browser;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 import io.github.bonigarcia.wdm.PhantomJsDriverManager;
-import org.drivrhq.drivr.browser.enums.BrowserType;
-import org.drivrhq.drivr.browser.enums.DriverRunType;
+import org.drivrhq.drivr.web.browser.enums.BrowserType;
+import org.drivrhq.drivr.web.browser.enums.DriverRunType;
 import org.drivrhq.drivr.utils.exception.DrivrInterruptionException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

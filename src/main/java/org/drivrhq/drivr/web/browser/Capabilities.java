@@ -1,6 +1,6 @@
-package org.drivrhq.drivr.browser;
+package org.drivrhq.drivr.web.browser;
 
-import org.drivrhq.drivr.browser.enums.BrowserType;
+import org.drivrhq.drivr.web.browser.enums.BrowserType;
 import org.drivrhq.drivr.utils.exception.DrivrInterruptionException;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;

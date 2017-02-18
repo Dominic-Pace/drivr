@@ -1,8 +1,8 @@
 package org.drivrhq.drivr.unit.browser;
 
-import org.drivrhq.drivr.browser.BrowserFactory;
-import org.drivrhq.drivr.browser.enums.BrowserType;
-import org.drivrhq.drivr.browser.enums.DriverRunType;
+import org.drivrhq.drivr.web.browser.BrowserFactory;
+import org.drivrhq.drivr.web.browser.enums.BrowserType;
+import org.drivrhq.drivr.web.browser.enums.DriverRunType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;

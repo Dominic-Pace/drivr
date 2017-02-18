@@ -1,8 +1,4 @@
-package org.drivrhq.drivr.page.interfaces;
-
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.internal.Locatable;
-import org.openqa.selenium.internal.WrapsElement;
+package org.drivrhq.drivr.web.browser.enums;
 
 /**
  * (C) Copyright 2016 Dominic Pace (https://github.com/Dominic-Pace)
@@ -18,14 +14,20 @@ import org.openqa.selenium.internal.WrapsElement;
  * Lesser General Public License for more details.
  *
  */
-public interface UIElementInt extends WebElement, WrapsElement, Locatable {
+public enum DriverRunType {
 
-    void toggle();
+    DIRECT("direct"),
+    REMOTE("remote");
 
-    void check();
+    private String driverRunType;
 
-    void uncheck();
+    DriverRunType(String driverRunType) {
+        this.driverRunType = driverRunType;
+    }
 
-    boolean isChecked();
+    @Override
+    public String toString() {
+        return driverRunType;
 
+    }
 }

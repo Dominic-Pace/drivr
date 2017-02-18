@@ -1,4 +1,4 @@
-package org.drivrhq.drivr.browser.enums;
+package org.drivrhq.drivr.web.browser.enums;
 
 /**
  * (C) Copyright 2016 Dominic Pace (https://github.com/Dominic-Pace)
@@ -14,20 +14,22 @@ package org.drivrhq.drivr.browser.enums;
  * Lesser General Public License for more details.
  *
  */
-public enum DriverRunType {
+public enum BrowserType {
 
-    DIRECT("direct"),
-    REMOTE("remote");
+    CHROME("chrome"),
+    FIREFOX("firefox"),
+    IE("ie"),
+    SAFARI("safari"),
+    PHANTOM_JS("phantomjs");
 
-    private String driverRunType;
+    private String browserType;
 
-    DriverRunType(String driverRunType) {
-        this.driverRunType = driverRunType;
+    BrowserType(String browserType) {
+        this.browserType = browserType;
     }
 
     @Override
     public String toString() {
-        return driverRunType;
-
+        return browserType;
     }
 }

@@ -1,8 +1,8 @@
-package org.drivrhq.drivr.page;
+package org.drivrhq.drivr.web.page;
 
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.NotImplementedException;
-import org.drivrhq.drivr.page.interfaces.UIElementInt;
+import org.drivrhq.drivr.web.page.interfaces.UIElementInt;
 import org.drivrhq.drivr.utils.exception.DrivrInterruptionException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.internal.Coordinates;
