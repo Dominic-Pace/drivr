@@ -66,4 +66,15 @@ public class BrowserFactoryTests {
         Assert.assertTrue(driverType.equals("safari"),
                 "The browser type was " + driverType + " but was expected to be safari.");
     }
+
+    @Test
+    public void ghostDriverInstanceTest() {
+        browserFactory = new BrowserFactory(BrowserType.PHANTOM_JS);
+
+        driver = browserFactory.getBrowserInstance(DriverRunType.DIRECT);
+
+        driver.get("https://www.google.com");
+        System.out.println(driver.getCurrentUrl());
+
+    }
 }

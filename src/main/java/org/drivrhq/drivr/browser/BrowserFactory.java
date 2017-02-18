@@ -2,6 +2,7 @@ package org.drivrhq.drivr.browser;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
+import io.github.bonigarcia.wdm.PhantomJsDriverManager;
 import org.drivrhq.drivr.browser.enums.BrowserType;
 import org.drivrhq.drivr.browser.enums.DriverRunType;
 import org.drivrhq.drivr.utils.exception.DrivrInterruptionException;
@@ -9,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -98,6 +100,10 @@ public class BrowserFactory {
             case SAFARI:
                 driver = new SafariDriver(capabilities);
                 break;
+
+            case PHANTOM_JS:
+                PhantomJsDriverManager.getInstance().setup();
+                driver = new PhantomJSDriver();
 
             default:
                 throw new DrivrInterruptionException("Cannot resolve driver type: "

@@ -19,7 +19,8 @@ public enum BrowserType {
     CHROME("chrome"),
     FIREFOX("firefox"),
     IE("ie"),
-    SAFARI("safari");
+    SAFARI("safari"),
+    PHANTOM_JS("phantomjs");
 
     private String browserType;
 
