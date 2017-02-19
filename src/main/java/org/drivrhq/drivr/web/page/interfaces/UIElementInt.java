@@ -1,4 +1,8 @@
-package org.drivrhq.drivr.utils.exception;
+package org.drivrhq.drivr.web.page.interfaces;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.internal.Locatable;
+import org.openqa.selenium.internal.WrapsElement;
 
 /**
  * (C) Copyright 2017 Dominic Pace (https://github.com/Dominic-Pace)
@@ -22,24 +26,14 @@ package org.drivrhq.drivr.utils.exception;
  * SOFTWARE.
  *
  */
-public class DrivrInterruptionException extends RuntimeException {
+public interface UIElementInt extends WebElement, WrapsElement, Locatable {
 
-    /**
-     * Custom Runtime Exception Constructor.
-     *
-     * @param message to report.
-     */
-    public DrivrInterruptionException(String message) {
-        super(message);
-    }
+    void toggle();
 
-    /**
-     * Custom Runtime Exception Constructor.
-     *
-     * @param message to report.
-     * @param throwable the throwable case.
-     */
-    public DrivrInterruptionException(String message, Throwable throwable) {
-        super(message, throwable);
-    }
+    void check();
+
+    void uncheck();
+
+    boolean isChecked();
+
 }

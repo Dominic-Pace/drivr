@@ -1,4 +1,4 @@
-package org.drivrhq.drivr.utils.exception;
+package org.drivrhq.drivr.web.browser.enums;
 
 /**
  * (C) Copyright 2017 Dominic Pace (https://github.com/Dominic-Pace)
@@ -22,24 +22,20 @@ package org.drivrhq.drivr.utils.exception;
  * SOFTWARE.
  *
  */
-public class DrivrInterruptionException extends RuntimeException {
+public enum DriverRunType {
 
-    /**
-     * Custom Runtime Exception Constructor.
-     *
-     * @param message to report.
-     */
-    public DrivrInterruptionException(String message) {
-        super(message);
+    DIRECT("direct"),
+    REMOTE("remote");
+
+    private String driverRunType;
+
+    DriverRunType(String driverRunType) {
+        this.driverRunType = driverRunType;
     }
 
-    /**
-     * Custom Runtime Exception Constructor.
-     *
-     * @param message to report.
-     * @param throwable the throwable case.
-     */
-    public DrivrInterruptionException(String message, Throwable throwable) {
-        super(message, throwable);
+    @Override
+    public String toString() {
+        return driverRunType;
+
     }
 }
