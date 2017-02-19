@@ -101,10 +101,6 @@ public class BrowserFactory {
                 driver = new SafariDriver(capabilities);
                 break;
 
-            case PHANTOM_JS:
-                PhantomJsDriverManager.getInstance().setup();
-                driver = new PhantomJSDriver();
-
             default:
                 throw new DrivrInterruptionException("Cannot resolve driver type: "
                         + browserType.toString());

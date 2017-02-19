@@ -85,21 +85,6 @@ public class Capabilities {
 
                 break;
 
-            case PHANTOM_JS:
-                ArrayList<String> cliArgsCap = new ArrayList<>();
-                capabilities = DesiredCapabilities.phantomjs();
-
-                cliArgsCap.add("--web-security=no");
-                cliArgsCap.add("--ssl-protocol=any");
-                cliArgsCap.add("--ignore-ssl-errors=yes");
-                cliArgsCap.add("--webdriver-logLevel=SEVERE");
-                capabilities.setCapability("takesScreenshot", true);
-                capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, cliArgsCap);
-                capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_GHOSTDRIVER_CLI_ARGS,
-                        new String[] { "--logLevel=2" });
-
-                break;
-
             default:
                 throw new DrivrInterruptionException("Cannot resolve the browser capabilities for "
                         + "browser type: " + browserType);

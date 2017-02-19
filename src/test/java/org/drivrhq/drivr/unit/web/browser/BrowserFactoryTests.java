@@ -66,17 +66,4 @@ public class BrowserFactoryTests {
         Assert.assertTrue(driverType.equals("safari"),
                 "The browser type was " + driverType + " but was expected to be safari.");
     }
-
-    //TODO - Uncomment when PhantomJS is working.
-//    @Test
-//    public void ghostDriverInstanceTest() {
-//        browserFactory = new BrowserFactory(BrowserType.PHANTOM_JS);
-//
-//        driver = browserFactory.getBrowserInstance(DriverRunType.DIRECT);
-//        driverType = ((RemoteWebDriver) driver).getCapabilities().getBrowserName();
-//
-//        Assert.assertTrue(driverType.equals("phantomjs"),
-//                "The browser type was " + driverType + " but was expected to be phantomjs.");
-//
-//    }
 }
