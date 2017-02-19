@@ -1,4 +1,9 @@
 # drivr
+
+[![Build Status](https://travis-ci.org/Dominic-Pace/drivr.svg?branch=master)](https://travis-ci.org/Dominic-Pace/drivr)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT)
+
+
 Drivr is a custom binding of Selenium's WebDriver for Java.
 
 Browser Support:
