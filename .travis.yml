@@ -4,5 +4,4 @@ jdk:
 sudo: false
 
 script:
-  jdk_switcher use oraclejdk8
   mvn clean verify
