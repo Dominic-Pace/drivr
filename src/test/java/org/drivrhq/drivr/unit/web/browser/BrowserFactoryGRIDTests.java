@@ -1,7 +1,7 @@
-package org.drivrhq.drivr.unit.page;
+package org.drivrhq.drivr.unit.web.browser;
 
 /**
- * (C) Copyright 2016 Dominic Pace (https://github.com/Dominic-Pace)
+ * (C) Copyright 2017 Dominic Pace (https://github.com/Dominic-Pace)
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the GNU Lesser General Public License
@@ -14,6 +14,6 @@ package org.drivrhq.drivr.unit.page;
  * Lesser General Public License for more details.
  *
  */
-public class PageTest {
+public class BrowserFactoryGRIDTests {
 
 }
