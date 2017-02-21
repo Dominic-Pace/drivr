@@ -1,9 +1,13 @@
-package org.drivrhq.drivr.pages;
+package org.drivrhq.drivr.unit.web.page;
 
+import org.drivrhq.drivr.web.browser.BrowserFactory;
+import org.drivrhq.drivr.web.browser.enums.BrowserType;
+import org.drivrhq.drivr.web.browser.enums.DriverRunType;
 import org.drivrhq.drivr.web.page.Page;
-import org.drivrhq.drivr.web.page.UIElement;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 /**
  * (C) Copyright 2017 Dominic Pace (https://github.com/Dominic-Pace)
@@ -27,29 +31,29 @@ import org.openqa.selenium.WebDriver;
  * SOFTWARE.
  *
  */
-public class SampleHomePage extends Page {
+public class PageBaseTest {
 
-    public UIElement searchField = getUIElement(By.id("search_query_top"));
-    public UIElement searchBtn = getUIElement(By.xpath("//*[@id='searchbox']/button"));
+    protected WebDriver driver;
+    protected Page samplePage;
+    protected String baseURL = "http://automationpractice.com/index.php";
 
-    public SampleHomePage(WebDriver driver) {
-        super(driver);
-
-    }
-
-    public SampleHomePage(WebDriver driver, String url) {
-        super(driver, url);
+    @AfterTest
+    public void cleanupDriverAfterTest() {
+        driver.quit();
 
     }
 
-    public SampleHomePage sendTextToSearchField(String textToSend) {
-        searchField.waitForElementToBeVisible().sendKeys(textToSend);
-        return this;
+    @BeforeMethod
+    public void setupWebPageBeforeEachMethod() {
+        samplePage = new Page(driver, baseURL);
 
     }
 
-    public void clickSearchBtn() {
-        searchField.waitForElementToBeClickable().click();
+    @BeforeTest
+    public void setupWebDriverBeforeTest() {
+        BrowserFactory factory = new BrowserFactory(BrowserType.CHROME);
+
+        driver = factory.getBrowserInstance(DriverRunType.DIRECT);
 
     }
 }

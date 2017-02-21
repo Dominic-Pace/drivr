@@ -1,4 +1,3 @@
-
 package org.drivrhq.drivr.unit.web.browser;
 
 import org.drivrhq.drivr.web.browser.Capabilities;
