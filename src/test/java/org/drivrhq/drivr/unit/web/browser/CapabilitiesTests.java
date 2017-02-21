@@ -3,7 +3,6 @@ package org.drivrhq.drivr.unit.web.browser;
 
 import org.drivrhq.drivr.web.browser.Capabilities;
 import org.drivrhq.drivr.web.browser.enums.BrowserType;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
