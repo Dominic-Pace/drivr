@@ -31,7 +31,7 @@ import org.testng.annotations.Test;
  * SOFTWARE.
  *
  */
-public class BrowserFactoryTests {
+public class BrowserFactoryTest {
 
     private BrowserFactory browserFactory;
     private WebDriver driver;
