@@ -49,7 +49,7 @@ public class BrowserFactoryTests {
         driver = browserFactory.getBrowserInstance(DriverRunType.DIRECT);
         driverType = ((RemoteWebDriver) driver).getCapabilities().getBrowserName();
 
-        Assert.assertTrue(driverType.equals("chrome"),
+        Assert.assertTrue(driverType.toLowerCase().equals("chrome"),
                 "The browser type was " + driverType + " but was expected to be chrome.");
     }
 
@@ -60,7 +60,7 @@ public class BrowserFactoryTests {
         driver = browserFactory.getBrowserInstance(DriverRunType.DIRECT);
         driverType = ((RemoteWebDriver) driver).getCapabilities().getBrowserName();
 
-        Assert.assertTrue(driverType.equals("firefox"),
+        Assert.assertTrue(driverType.toLowerCase().equals("firefox"),
                 "The browser type was " + driverType + " but was expected to be firefox.");
     }
 
@@ -71,7 +71,7 @@ public class BrowserFactoryTests {
         driver = browserFactory.getBrowserInstance(DriverRunType.DIRECT);
         driverType = ((RemoteWebDriver) driver).getCapabilities().getBrowserName();
 
-        Assert.assertTrue(driverType.equals("safari"),
+        Assert.assertTrue(driverType.toLowerCase().equals("safari"),
                 "The browser type was " + driverType + " but was expected to be safari.");
     }
 }

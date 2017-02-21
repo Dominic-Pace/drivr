@@ -1,6 +1,7 @@
 package org.drivrhq.drivr.web.browser;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 import org.drivrhq.drivr.web.browser.enums.BrowserType;
 import org.drivrhq.drivr.web.browser.enums.DriverRunType;
@@ -90,6 +91,7 @@ public class BrowserFactory {
         switch(browserType) {
 
             case FIREFOX:
+                FirefoxDriverManager.getInstance().setup();
                 driver = new FirefoxDriver(capabilities);
                 break;
 
