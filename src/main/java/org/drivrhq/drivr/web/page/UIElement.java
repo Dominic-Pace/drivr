@@ -1,31 +1,31 @@
 package org.drivrhq.drivr.web.page;
 
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.NotImplementedException;
-import org.drivrhq.drivr.web.page.interfaces.UIElementInt;
 import org.drivrhq.drivr.utils.exception.DrivrInterruptionException;
+import org.drivrhq.drivr.web.page.interfaces.UIElementInt;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.internal.Coordinates;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 /**
  * (C) Copyright 2017 Dominic Pace (https://github.com/Dominic-Pace)
- *
+ * ----------------------------------------------------------------------------
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * ----------------------------------------------------------------------------
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
+ * ----------------------------------------------------------------------------
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -33,7 +33,6 @@ import java.util.concurrent.TimeUnit;
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- *
  */
 public class UIElement implements UIElementInt {
 
@@ -101,8 +100,6 @@ public class UIElement implements UIElementInt {
 
     /**
      * Method used to clear a web element of all text or information.
-     *
-     * @return UIElement instance.
      */
     @Override
     public void clear() {
@@ -341,6 +338,21 @@ public class UIElement implements UIElementInt {
     }
 
     /**
+     * Method used for waiting for an element to be visible with a custom timeout.
+     *
+     * @param timeout custom timeout time.
+     * @return UIElement instance
+     */
+    public UIElement waitForElementToBeVisible(int timeout) {
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        wait.withTimeout(timeout, TimeUnit.SECONDS)
+                .pollingEvery(sleepTime, TimeUnit.MILLISECONDS)
+                .until(ExpectedConditions.visibilityOfElementLocated(byLocator));
+        return this;
+
+    }
+
+    /**
      * Method used for waiting for an element to be present with the default timeout.
      *
      * @return Core Web UIElement instance
@@ -365,21 +377,6 @@ public class UIElement implements UIElementInt {
         wait.withTimeout(timeout, TimeUnit.SECONDS)
                 .pollingEvery(sleepTime, TimeUnit.MILLISECONDS)
                 .until(ExpectedConditions.presenceOfElementLocated(byLocator));
-        return this;
-
-    }
-
-    /**
-     * Method used for waiting for an element to be visible with a custom timeout.
-     *
-     * @param timeout custom timeout time.
-     * @return UIElement instance
-     */
-    public UIElement waitForElementToBeVisible(int timeout) {
-        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        wait.withTimeout(timeout, TimeUnit.SECONDS)
-                .pollingEvery(sleepTime, TimeUnit.MILLISECONDS)
-                .until(ExpectedConditions.visibilityOfElementLocated(byLocator));
         return this;
 
     }

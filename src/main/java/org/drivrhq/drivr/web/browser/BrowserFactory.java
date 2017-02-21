@@ -1,11 +1,14 @@
 package org.drivrhq.drivr.web.browser;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
+import org.drivrhq.drivr.utils.exception.DrivrInterruptionException;
 import org.drivrhq.drivr.web.browser.enums.BrowserType;
 import org.drivrhq.drivr.web.browser.enums.DriverRunType;
-import org.drivrhq.drivr.utils.exception.DrivrInterruptionException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -14,22 +17,19 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 /**
  * (C) Copyright 2017 Dominic Pace (https://github.com/Dominic-Pace)
- *
+ * ----------------------------------------------------------------------------
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * ----------------------------------------------------------------------------
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
+ * ----------------------------------------------------------------------------
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -37,7 +37,6 @@ import java.net.URL;
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- *
  */
 public class BrowserFactory {
 
@@ -45,11 +44,22 @@ public class BrowserFactory {
     private BrowserType browserType;
     private String seleniumGridURL;
 
+    /**
+     * Constructor for remote webdriver instances.
+     *
+     * @param browserType - type of browser
+     */
     public BrowserFactory(BrowserType browserType) {
         this.browserType = browserType;
 
     }
 
+    /**
+     * Constructor for remote webdriver instances.
+     *
+     * @param browserType - type of browser
+     * @param seleniumGridURL - selenium grid url
+     */
     public BrowserFactory(BrowserType browserType, String seleniumGridURL) {
         this.browserType = browserType;
         this.seleniumGridURL = seleniumGridURL;
@@ -82,10 +92,8 @@ public class BrowserFactory {
 
     /**
      * Method used to initialize a direct web driver instance.
-     *
      * NOTE:
      *     Safari must be using Safari 10.x and must check Develop -> Allow Remote Automation
-
      *
      * @param capabilities of the direct driver.
      * @return WebDriver instance.
