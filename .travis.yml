@@ -4,6 +4,11 @@ jdk:
   - oraclejdk8
 sudo:
   false
+addons:
+  firefox: "49.0"
+  apt:
+    packages:
+      - google-chrome-stable
 
 script:
   mvn clean verify test
