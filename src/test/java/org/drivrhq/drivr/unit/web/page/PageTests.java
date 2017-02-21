@@ -105,4 +105,24 @@ public class PageTests extends PageBaseTest {
                 "The search bar text found was " + searchBar.getValue()
                         + "and was expected to contain nothing at all!");
     }
+
+    @Test
+    public void browserBackButtonTest() {
+        samplePage.getUIElement(By.xpath("//a[@title='Women']")).click();
+
+        Assert.assertTrue(driver.getTitle().equals("Women - My Store"),
+                "The page title was " + driver.getTitle()
+                        + " but was expected to be: Women - My Store");
+
+        samplePage.clickBrowserBackButton();
+
+        Assert.assertFalse(driver.getTitle().equals("Women - My Store"),
+                "The page title was " + driver.getTitle()
+                        + " but was expected not to be: Women - My Store");
+
+        Assert.assertTrue(driver.getTitle().equals("My Store"),
+                "The page title was " + driver.getTitle()
+                        + " but was expected not to be: My Store");
+
+    }
 }
