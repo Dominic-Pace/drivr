@@ -195,6 +195,18 @@ public class UIElement implements UIElementInt {
 
     }
 
+    /**
+     * Method used to get the value of an element.
+     * For Example:
+     *      Get the value of text entered into a textbox
+     *
+     * @return String representation of the value of an element
+     */
+    public String getValue() {
+        return driver.findElement(byLocator).getAttribute("value");
+
+    }
+
     @Override
     public List<WebElement> findElements(By by) {
         throw new DrivrInterruptionException("Find Element is not supported by UIElement.");
