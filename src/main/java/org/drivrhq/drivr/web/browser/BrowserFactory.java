@@ -83,6 +83,10 @@ public class BrowserFactory {
     /**
      * Method used to initialize a direct web driver instance.
      *
+     * NOTE:
+     *     Safari must be using Safari 10.x and must check Develop -> Allow Remote Automation
+
+     *
      * @param capabilities of the direct driver.
      * @return WebDriver instance.
      */
