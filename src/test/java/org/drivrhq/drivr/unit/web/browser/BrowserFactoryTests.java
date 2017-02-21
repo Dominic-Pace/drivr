@@ -31,7 +31,7 @@ import org.testng.annotations.Test;
  * SOFTWARE.
  *
  */
-public class BrowserFactoryTest {
+public class BrowserFactoryTests {
 
     private BrowserFactory browserFactory;
     private WebDriver driver;
@@ -62,16 +62,5 @@ public class BrowserFactoryTest {
 
         Assert.assertTrue(driverType.toLowerCase().equals("firefox"),
                 "The browser type was " + driverType + " but was expected to be firefox.");
-    }
-
-    @Test
-    public void safariDriverInstanceTest() {
-        browserFactory = new BrowserFactory(BrowserType.SAFARI);
-
-        driver = browserFactory.getBrowserInstance(DriverRunType.DIRECT);
-        driverType = ((RemoteWebDriver) driver).getCapabilities().getBrowserName();
-
-        Assert.assertTrue(driverType.toLowerCase().equals("safari"),
-                "The browser type was " + driverType + " but was expected to be safari.");
     }
 }
