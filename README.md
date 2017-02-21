@@ -1,6 +1,7 @@
 # drivr
 
 [![Build Status](https://travis-ci.org/Dominic-Pace/drivr.svg?branch=master)](https://travis-ci.org/Dominic-Pace/drivr)
+[![Code Climate](https://codeclimate.com/github/Dominic-Pace/drivr/badges/gpa.svg)](https://codeclimate.com/github/Dominic-Pace/drivr)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT)
 
 
