@@ -3,7 +3,7 @@ language:
 jdk:
   - oraclejdk8
 sudo:
-  false
+  true
 addons:
   firefox: "49.0"
   apt:
