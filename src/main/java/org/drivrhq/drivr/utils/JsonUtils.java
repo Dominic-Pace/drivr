@@ -1,12 +1,13 @@
 package org.drivrhq.drivr.utils;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.drivrhq.drivr.utils.exception.DrivrInterruptionException;
 
 /**
