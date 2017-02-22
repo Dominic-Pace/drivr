@@ -8,7 +8,7 @@ dist: trusty
 addons:
   firefox: "49.0"
   code_climate:
-      repo_token: c7c7c3a8ff0d8751387401a97fbde245bf1f89d88b7d7591d3fce95a5d82e57e
+      repo_token: CODE_CLIMATE_TOKEN
 
 before_install:
  - export CHROME_BIN=/usr/bin/google-chrome
