@@ -1,8 +1,6 @@
 package org.drivrhq.drivr.unit.web.page;
 
-import org.drivrhq.drivr.web.page.Page;
 import org.openqa.selenium.By;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
