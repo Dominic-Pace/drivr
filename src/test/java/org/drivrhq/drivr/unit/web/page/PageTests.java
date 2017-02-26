@@ -66,7 +66,7 @@ public class PageTests extends PageBaseTest {
         UIElement searchBar = samplePage.getUIElement(By.id("search_query_top"));
 
         try {
-            searchBar.waitForElementToBeVisible().sendKeys("Printed Chiffon Dress");
+            searchBar.waitForElementToBeVisible().sendText("Printed Chiffon Dress");
 
         } catch (ElementNotVisibleException e) {
             throw new DrivrInterruptionException("Could not find the element: "
@@ -85,7 +85,7 @@ public class PageTests extends PageBaseTest {
         UIElement searchBar = samplePage.getUIElement(By.id("search_query_top"));
 
         try {
-            searchBar.waitForElementToBeVisible().sendKeys("Printed Chiffon Dress");
+            searchBar.waitForElementToBeVisible().sendText("Printed Chiffon Dress");
 
         } catch (ElementNotVisibleException e) {
             throw new DrivrInterruptionException("Could not find the element: "
