@@ -5,7 +5,9 @@ import java.util.concurrent.TimeUnit;
 
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.NotImplementedException;
+import org.apache.http.MethodNotSupportedException;
 import org.drivrhq.drivr.utils.exception.DrivrInterruptionException;
+import org.drivrhq.drivr.utils.exception.DrivrNotSupportedException;
 import org.drivrhq.drivr.web.page.interfaces.UIElementInt;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.internal.Coordinates;
@@ -97,7 +99,20 @@ public class UIElement implements UIElementInt {
      */
     @Override
     public void sendKeys(CharSequence... var1) {
-        driver.findElement(byLocator).sendKeys(var1);
+        throw new DrivrNotSupportedException(
+                "Please use sendText method. sendKeys is not supported.");
+
+    }
+
+    /**
+     * Method used to send text to a web element.
+     *
+     * @param textToSend - text to send to the element
+     * @return instance of UIElement
+     */
+    public UIElement sendText(String textToSend) {
+        driver.findElement(byLocator).sendKeys(textToSend);
+        return this;
 
     }
 
