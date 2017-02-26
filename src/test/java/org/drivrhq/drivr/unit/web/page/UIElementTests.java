@@ -44,6 +44,8 @@ public class UIElementTests {
 
     private UIElement searchBox;
     private UIElement searchBtn;
+    private UIElement sampleCheckbox;
+    private UIElement sampleTextField;
 
     @AfterTest
     public void cleanupDriverAfterTest() {
@@ -65,6 +67,9 @@ public class UIElementTests {
 
         searchBox = samplePage.getUIElement(By.id("search_query_top"));
         searchBtn = samplePage.getUIElement(By.xpath("//button[@name='submit_search']"));
+        sampleCheckbox = samplePage.getUIElement(By.id("layered_category_4"));
+        sampleTextField = samplePage.getUIElement(
+                By.xpath(".//*[@id='cmsinfo_block']//strong[@class='dark']"));
 
     }
 
@@ -133,5 +138,124 @@ public class UIElementTests {
         Assert.assertTrue(searchBox.getValue().equals(""),
                 "The value in the search box was " + searchBox.getValue()
                         + " but was expected to be: -nothing-");
+
+    }
+
+    @Test
+    public void clearAndSendTextTest() {
+        searchBox.sendText("Test Keys");
+
+        Assert.assertTrue(searchBox.getValue().equals("Test Keys"),
+                "The value in the search box was " + searchBox.getValue()
+                        + " but was expected to be: Test Keys");
+
+        searchBox.clearAndSendText("New Clear and Send Text");
+
+        Assert.assertTrue(searchBox.getValue().equals("New Clear and Send Text"),
+                "The value in the search box was " + searchBox.getValue()
+                        + " but was expected to be: New Clear and Send Text");
+
+    }
+
+    @Test
+    public void getTagNameTest() {
+
+        Assert.assertTrue(searchBox.getTagName().equals("input"),
+                "The value in the search box was " + searchBox.getTagName()
+                        + " but was expected to be: input");
+
+        Assert.assertTrue(searchBtn.getTagName().equals("button"),
+                "The value in the search box was " + searchBox.getTagName()
+                        + " but was expected to be: button");
+
+    }
+
+    @Test
+    public void getAttributeTest() {
+
+        Assert.assertTrue(searchBox.getAttribute("id").equals("search_query_top"),
+                "The value in the search box was " + searchBox.getAttribute("id")
+                        + " but was expected to be: search_query_top");
+
+        Assert.assertTrue(searchBox.getAttribute("class").equals("search_query form-control ac_input"),
+                "The value in the search box was " + searchBox.getAttribute("class")
+                        + " but was expected to be: search_query form-control ac_input");
+
+        Assert.assertTrue(searchBox.getAttribute("type").equals("text"),
+                "The value in the search box was " + searchBox.getAttribute("type")
+                        + " but was expected to be: text");
+
+        Assert.assertTrue(searchBox.getAttribute("value").equals(""),
+                "The value in the search box was " + searchBox.getAttribute("value")
+                        + " but was expected to be: -nothing-");
+
+        Assert.assertTrue(searchBox.getAttribute("placeholder").equals("Search"),
+                "The value in the search box was " + searchBox.getAttribute("placeholder")
+                        + " but was expected to be: Search");
+
+        Assert.assertTrue(searchBox.getAttribute("name").equals("search_query"),
+                "The value in the search box was " + searchBox.getAttribute("name")
+                        + " but was expected to be: search_query");
+
+        Assert.assertTrue(searchBox.getAttribute("autocomplete").equals("off"),
+                "The value in the search box was " + searchBox.getAttribute("autocomplete")
+                        + " but was expected to be: off");
+
+    }
+
+    @Test
+    public void isSelectedTest() {
+        samplePage.getUIElement(By.xpath("//a[@title='Women']")).click();
+
+        Assert.assertTrue(driver.getTitle().equals("Women - My Store"),
+                "The page title was " + driver.getTitle()
+                        + " but was expected to be: Women - My Store");
+
+        Assert.assertFalse(sampleCheckbox.isSelected(),
+                "Sample Checkbox was selected and was expected not to be.");
+
+        sampleCheckbox.click();
+
+        Assert.assertTrue(sampleCheckbox.isSelected(),
+                "Sample Checkbox was selected and was expected not to be.");
+    }
+
+    @Test
+    public void isDisplayedTest() {
+
+        Assert.assertTrue(searchBox.isDisplayed(),
+                "The search box was not displayed and was expected to be.");
+
+        Assert.assertTrue(searchBtn.isDisplayed(),
+                "The search button was not displayed and was expected to be.");
+
+    }
+
+    @Test
+    public void isEnabledTest() {
+
+        Assert.assertTrue(searchBox.isEnabled(),
+                "The search box was not enabled and was expected to be.");
+
+        Assert.assertTrue(searchBtn.isEnabled(),
+                "The search button was not enabled and was expected to be.");
+
+    }
+
+    @Test
+    public void isClickableTest() {
+
+        Assert.assertTrue(searchBtn.isClickable(),
+                "The search box was not enabled and was expected to be.");
+
+    }
+
+    @Test
+    public void getTextTest() {
+
+        Assert.assertTrue(sampleTextField.getText().equals("This is a custom block of text"),
+                "The sample text field contained the text: " + sampleTextField.getText()
+                        + " but was expected to contain: This is a custom block of text");
+
     }
 }
