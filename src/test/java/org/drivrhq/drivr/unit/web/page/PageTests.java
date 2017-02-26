@@ -30,7 +30,6 @@ import org.testng.annotations.*;
  */
 public class PageTests extends PageBaseTest {
 
-
     @Test
     public void urlParameterValidationTest() {
         Assert.assertTrue(driver.getCurrentUrl().equals(baseURL),

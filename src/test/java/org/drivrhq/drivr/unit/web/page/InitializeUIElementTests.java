@@ -1,6 +1,8 @@
 package org.drivrhq.drivr.unit.web.page;
 
+import org.drivrhq.drivr.web.page.Page;
 import org.openqa.selenium.By;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
@@ -24,7 +26,13 @@ import org.testng.annotations.Test;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class InitializeUIElementTests extends PageBaseTest {
+public class InitializeUIElementTests extends UIElementBaseTest {
+
+    @BeforeMethod
+    public void setupWebPageBeforeEachMethod() {
+        samplePage = new Page(driver, baseURL);
+
+    }
 
     @Test
     public void initializeUIElementByIDTest() {
