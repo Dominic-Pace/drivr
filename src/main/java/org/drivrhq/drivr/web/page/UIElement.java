@@ -81,11 +81,14 @@ public class UIElement implements UIElementInt {
 
     }
 
+    /**
+     * Method used to submit a web element.
+     */
     @Override
     public void submit() {
+        driver.findElement(byLocator).submit();
 
     }
-
 
     /**
      * Method used to send text to a web element.
