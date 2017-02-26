@@ -124,4 +124,14 @@ public class PageTests extends PageBaseTest {
                         + " but was expected not to be: My Store");
 
     }
+
+    @Test
+    public void scrollToBottomOfPage() {
+        try {
+            samplePage.scrollToBottomOfPage();
+        } catch (Exception e) {
+            throw new DrivrInterruptionException("Could not scroll to the bottom of the page.");
+        }
+
+    }
 }
