@@ -28,12 +28,6 @@ import org.testng.annotations.Test;
  */
 public class InitializeUIElementTests extends UIElementBaseTest {
 
-    @BeforeMethod
-    public void setupWebPageBeforeEachMethod() {
-        samplePage = new Page(driver, baseURL);
-
-    }
-
     @Test
     public void initializeUIElementByIDTest() {
         try {
