@@ -8,6 +8,7 @@ import org.drivrhq.drivr.web.browser.enums.DriverRunType;
 import org.drivrhq.drivr.web.page.Page;
 import org.drivrhq.drivr.web.page.UIElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -218,6 +219,7 @@ public class UIElementTests {
 
         Assert.assertTrue(sampleCheckbox.isSelected(),
                 "Sample Checkbox was selected and was expected not to be.");
+
     }
 
     @Test
@@ -256,6 +258,164 @@ public class UIElementTests {
         Assert.assertTrue(sampleTextField.getText().equals("This is a custom block of text"),
                 "The sample text field contained the text: " + sampleTextField.getText()
                         + " but was expected to contain: This is a custom block of text");
+
+    }
+
+    @Test
+    public void findElementTest() {
+        try {
+            searchBox.findElement(By.id("testID"));
+
+            throw new DrivrInterruptionException("The Drivr not supported exception is not valid.");
+        } catch (DrivrNotSupportedException e) {
+
+        }
+    }
+
+    @Test
+    public void findElementsTest() {
+        try {
+            searchBox.findElements(By.id("testIDs"));
+
+            throw new DrivrInterruptionException("The Drivr not supported exception is not valid.");
+        } catch (DrivrNotSupportedException e) {
+
+        }
+    }
+
+    @Test
+    public void getLocationTest() {
+
+        Assert.assertTrue(searchBox.getLocation().getX() == 378,
+                "The search box X axis was : " + sampleTextField.getLocation().getX()
+                        + " but was expected to be: 378");
+
+        Assert.assertTrue(searchBox.getLocation().getY() == 140,
+                "The search box X axis was : " + sampleTextField.getLocation().getY()
+                        + " but was expected to be: 140");
+
+    }
+
+    @Test
+    public void getSizeTest() {
+
+        Assert.assertTrue(searchBox.getSize().getHeight() == 45,
+                "The search box X axis was : " + sampleTextField.getSize().getHeight()
+                        + " but was expected to be: 45");
+        Assert.assertTrue(searchBox.getSize().getWidth() == 293,
+                "The search box X axis was : " + sampleTextField.getSize().getWidth()
+                        + " but was expected to be: 293");
+    }
+
+    @Test
+    public void getCssValueTest() {
+
+        try {
+            searchBox.getCssValue("test string");
+
+            throw new DrivrInterruptionException("The Drivr not supported exception is not valid.");
+        } catch (DrivrNotSupportedException e) {
+
+        }
+    }
+
+    @Test
+    public void getScreenshotAsTest() {
+
+        try {
+            searchBox.getScreenshotAs(OutputType.BYTES);
+
+            throw new DrivrInterruptionException("The Drivr not supported exception is not valid.");
+        } catch (DrivrNotSupportedException e) {
+
+        }
+    }
+    @Test
+    public void getCoordinatesTest() {
+        try {
+            searchBox.getCoordinates();
+
+            throw new DrivrInterruptionException("The Drivr not supported exception is not valid.");
+        } catch (DrivrNotSupportedException e) {
+
+        }
+    }
+
+    @Test
+    public void getWrappedElementTest() {
+        try {
+            searchBox.getWrappedElement();
+
+            throw new DrivrInterruptionException("The Drivr not supported exception is not valid.");
+        } catch (DrivrNotSupportedException e) {
+
+        }
+    }
+
+    @Test
+    public void toggleTest() {
+        samplePage.getUIElement(By.xpath("//a[@title='Women']")).click();
+
+        Assert.assertTrue(driver.getTitle().equals("Women - My Store"),
+                "The page title was " + driver.getTitle()
+                        + " but was expected to be: Women - My Store");
+
+        Assert.assertFalse(sampleCheckbox.isSelected(),
+                "Sample Checkbox was selected and was expected not to be.");
+
+        sampleCheckbox.toggle();
+
+        Assert.assertTrue(sampleCheckbox.isSelected(),
+                "Sample Checkbox was selected and was expected not to be.");
+    }
+
+    @Test
+    public void checkTest() {
+        samplePage.getUIElement(By.xpath("//a[@title='Women']")).click();
+
+        Assert.assertTrue(driver.getTitle().equals("Women - My Store"),
+                "The page title was " + driver.getTitle()
+                        + " but was expected to be: Women - My Store");
+
+        Assert.assertFalse(sampleCheckbox.isSelected(),
+                "Sample Checkbox was selected and was expected not to be.");
+
+        sampleCheckbox.check();
+
+        Assert.assertTrue(sampleCheckbox.isSelected(),
+                "Sample Checkbox was selected and was expected not to be.");
+
+        sampleCheckbox.check();
+
+        Assert.assertTrue(sampleCheckbox.isSelected(),
+                "Sample Checkbox was selected and was expected not to be.");
+    }
+
+    @Test
+    public void checkParamTest() {
+        samplePage.getUIElement(By.xpath("//a[@title='Women']")).click();
+
+        Assert.assertTrue(driver.getTitle().equals("Women - My Store"),
+                "The page title was " + driver.getTitle()
+                        + " but was expected to be: Women - My Store");
+
+        Assert.assertFalse(sampleCheckbox.isSelected(),
+                "Sample Checkbox was selected and was expected not to be.");
+
+        sampleCheckbox.check(true);
+
+        Assert.assertTrue(sampleCheckbox.isSelected(),
+                "Sample Checkbox was selected and was expected not to be.");
+
+        sampleCheckbox.check(true);
+
+        Assert.assertTrue(sampleCheckbox.isSelected(),
+                "Sample Checkbox was selected and was expected not to be.");
+
+        sampleCheckbox.check(false);
+
+        Assert.assertFalse(sampleCheckbox.isSelected(),
+                "Sample Checkbox was selected and was expected not to be.");
 
     }
 }

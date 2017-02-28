@@ -224,13 +224,13 @@ public class UIElement implements UIElementInt {
 
     @Override
     public List<WebElement> findElements(By by) {
-        throw new DrivrInterruptionException("Find Element is not supported by UIElement.");
+        throw new DrivrNotSupportedException("Find Elements is not supported by UIElement.");
 
     }
 
     @Override
     public WebElement findElement(By by) {
-        throw new DrivrInterruptionException("Find Element is not supported by UIElement.");
+        throw new DrivrNotSupportedException("Find Element is not supported by UIElement.");
 
     }
 
@@ -263,7 +263,7 @@ public class UIElement implements UIElementInt {
      */
     @Override
     public Rectangle getRect() {
-        return driver.findElement(byLocator).getRect();
+        throw new DrivrNotSupportedException("Rect is not supported by UIElement.");
 
     }
 
@@ -274,19 +274,19 @@ public class UIElement implements UIElementInt {
      */
     @Override
     public String getCssValue(String s) {
-        return driver.findElement(byLocator).getCssValue(s);
+        throw new DrivrNotSupportedException("Get CSS Value is not supported by UIElement.");
 
     }
 
     @Override
     public <X> X getScreenshotAs(OutputType<X> outputType) throws WebDriverException {
-        throw new NotImplementedException("Method called getScreenshotAs() is not yet supported.");
+        throw new DrivrNotSupportedException("Method called getScreenshotAs() is not yet supported.");
 
     }
 
     @Override
     public Coordinates getCoordinates() {
-        throw new NotImplementedException("Method called getCoordinates() is not yet supported.");
+        throw new DrivrNotSupportedException("Method called getCoordinates() is not yet supported.");
 
     }
 
@@ -296,8 +296,8 @@ public class UIElement implements UIElementInt {
      * @return WebElement instance
      */
     @Override
-    public WebElement getWrappedElement() {
-        return getWrappedElement();
+    public UIElement getWrappedElement() {
+        throw new DrivrNotSupportedException("Get Wrapped Element is not supported by UIElement.");
 
     }
 
@@ -306,7 +306,7 @@ public class UIElement implements UIElementInt {
      */
     @Override
     public void toggle() {
-        getWrappedElement().click();
+        driver.findElement(byLocator).click();
 
     }
 
@@ -317,6 +317,19 @@ public class UIElement implements UIElementInt {
     public void check() {
         if (!isChecked()) {
             toggle();
+        }
+    }
+
+    /**
+     * Method used to check a check box based on user input.
+     */
+    public void check(boolean toCheck) {
+        if (toCheck) {
+            check();
+
+        } else {
+            uncheck();
+
         }
     }
 
@@ -337,7 +350,7 @@ public class UIElement implements UIElementInt {
      */
     @Override
     public boolean isChecked() {
-        return getWrappedElement().isSelected();
+        return driver.findElement(byLocator).isSelected();
 
     }
 
