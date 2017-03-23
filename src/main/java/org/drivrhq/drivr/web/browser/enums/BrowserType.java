@@ -23,14 +23,14 @@ package org.drivrhq.drivr.web.browser.enums;
  */
 public enum BrowserType {
 
-    CHROME("chrome"),
-    FIREFOX("firefox"),
-    IE("ie"),
-    SAFARI("safari");
+    CHROME(),
+    FIREFOX(),
+    IE(),
+    SAFARI();
 
     private String browserType;
 
-    BrowserType(String browserType) {
+    BrowserType() {
         this.browserType = browserType;
     }
 
