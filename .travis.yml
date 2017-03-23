@@ -17,8 +17,10 @@ before_install:
  - sudo apt-get update
  - sudo apt-get install -y libappindicator1 fonts-liberation
  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
- - sudo apt-get install google-chrome-stable
- - sudo dpkg -i google-chrome*.deb
+ - sudo apt install libappindicator1 libdbusmenu-glib4 libdbusmenu-gtk4 libindicator7 libpango1.0-0 libpangox-1.0-0
+ - sudo dpkg -i google-chrome-stable_current_amd64.deb
+ - sudo apt update
+ - sudo apt upgrade
 
 script:
   mvn clean verify test
